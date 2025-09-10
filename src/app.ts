@@ -10,7 +10,12 @@ const app: Application = express();
 //using cors to prevent
 app.use(
   cors({
-    origin: ["*", "http://localhost:5173", "http://localhost:8080"],
+    origin: [
+      "*",
+      "https://student-zenith.netlify.app",
+      "http://localhost:5173",
+      "http://localhost:8080",
+    ],
 
     credentials: true, // Allow cookies and headers like Authorization
   })
