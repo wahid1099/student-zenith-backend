@@ -6,6 +6,8 @@ async function main() {
   // Set up Mongoose event listeners
   mongoose.connection.on("connected", () => {
     console.log("Database connected successfully");
+    console.log("DB URL:", config.db_url ? "<loaded>" : "<NOT loaded>");
+    console.log("DB_URL env var:", process.env.DB_URL);
   });
 
   mongoose.connection.on("error", (err) => {
