@@ -4,6 +4,7 @@ import globalErrorHandler from "./app/middlewares/globalErrorHandler";
 import router from "./app/routes";
 import cookieParser from "cookie-parser";
 import notFound from "./app/middlewares/notFound";
+import config from "./config/index";
 
 const app: Application = express();
 // app.use(cors());
@@ -28,6 +29,9 @@ app.use(express.urlencoded({ extended: true }));
 
 // Home route
 app.get("/", (req: Request, res: Response) => {
+  console.log("DB URL:", config.db_url ? "<loaded>" : "<NOT loaded>");
+  console.log("DB_URL env var:", process.env.DB_URL);
+
   res.send({
     Message: "Student Life Toolkit Backend is running successfully",
   });
